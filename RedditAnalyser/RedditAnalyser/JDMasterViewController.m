@@ -10,8 +10,16 @@
 
 #import "JDDetailViewController.h"
 
-@interface JDMasterViewController ()
+#import "JDServerRequest.h"
+#import "JDSubredditsRequest.h"
+
+#import "Subreddit.h"
+
+@interface JDMasterViewController ()<JDServerRequestDelegate>
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+@property NSURLConnection *connection;
+@property NSMutableArray *requests;
+
 @end
 
 @implementation JDMasterViewController
@@ -24,7 +32,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    self.requests = [NSMutableArray array];
+    
+    JDSubredditsRequest *request = [[JDSubredditsRequest alloc] initWithDelegate:self];
+    request.managedObjectContext = self.managedObjectContext;
+    [request loadSubreddits];
+    
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
@@ -124,16 +138,14 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Subreddit" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
     NSArray *sortDescriptors = @[sortDescriptor];
-    
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     // Edit the section name key path and cache name if appropriate.
@@ -215,8 +227,32 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+    Subreddit *reddit = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = reddit.displayName;
+}
+
+#pragma mark - URLConnection delegate
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    NSLog(@"%@", error);
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    
+}
+
+#pragma mark - JDServerRequestDelegate
+-(void)requestSuccess:(JDServerRequest *)request{
+    
+}
+
+-(void)request:(JDServerRequest *)request failedWithError:(NSString *)error andBody:(NSData *)body{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning@" message:@"Could not load!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
+-(void)requestCancelled:(JDServerRequest *)request{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning@" message:@"Could not load!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];    
 }
 
 @end

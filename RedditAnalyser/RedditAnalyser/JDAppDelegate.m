@@ -22,6 +22,7 @@
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     JDMasterViewController *controller = (JDMasterViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+        
     return YES;
 }
 							

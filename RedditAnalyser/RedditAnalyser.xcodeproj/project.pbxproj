@@ -27,6 +27,13 @@
 		56CACC8C16585A44007D943F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CACC6216585A44007D943F /* CoreData.framework */; };
 		56CACC9416585A44007D943F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56CACC9216585A44007D943F /* InfoPlist.strings */; };
 		56CACC9716585A44007D943F /* RedditAnalyserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CACC9616585A44007D943F /* RedditAnalyserTests.m */; };
+		56CACCAE16586212007D943F /* JDServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CACCAD16586212007D943F /* JDServerRequest.m */; };
+		56CACCB11658626D007D943F /* JDSubredditsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CACCB01658626D007D943F /* JDSubredditsRequest.m */; };
+		56CACCB616586618007D943F /* JDUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CACCB516586618007D943F /* JDUserRequest.m */; };
+		56CACCB916586794007D943F /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CACCB816586794007D943F /* Comment.m */; };
+		56CACCBC16586795007D943F /* Thread.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CACCBB16586795007D943F /* Thread.m */; };
+		56CACCC216586795007D943F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CACCC116586795007D943F /* User.m */; };
+		56CACCC816586DAF007D943F /* Subreddit.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CACCC716586DAF007D943F /* Subreddit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +73,20 @@
 		56CACC9316585A44007D943F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56CACC9516585A44007D943F /* RedditAnalyserTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedditAnalyserTests.h; sourceTree = "<group>"; };
 		56CACC9616585A44007D943F /* RedditAnalyserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedditAnalyserTests.m; sourceTree = "<group>"; };
+		56CACCAC16586212007D943F /* JDServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDServerRequest.h; sourceTree = "<group>"; };
+		56CACCAD16586212007D943F /* JDServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDServerRequest.m; sourceTree = "<group>"; };
+		56CACCAF1658626D007D943F /* JDSubredditsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDSubredditsRequest.h; sourceTree = "<group>"; };
+		56CACCB01658626D007D943F /* JDSubredditsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDSubredditsRequest.m; sourceTree = "<group>"; };
+		56CACCB416586618007D943F /* JDUserRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDUserRequest.h; sourceTree = "<group>"; };
+		56CACCB516586618007D943F /* JDUserRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDUserRequest.m; sourceTree = "<group>"; };
+		56CACCB716586794007D943F /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		56CACCB816586794007D943F /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		56CACCBA16586795007D943F /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
+		56CACCBB16586795007D943F /* Thread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thread.m; sourceTree = "<group>"; };
+		56CACCC016586795007D943F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		56CACCC116586795007D943F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		56CACCC616586DAF007D943F /* Subreddit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subreddit.h; sourceTree = "<group>"; };
+		56CACCC716586DAF007D943F /* Subreddit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subreddit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,14 +149,11 @@
 		56CACC6416585A44007D943F /* RedditAnalyser */ = {
 			isa = PBXGroup;
 			children = (
+				56CACCAB165861D9007D943F /* View Controller */,
+				56CACCAA165861C8007D943F /* Model */,
+				56CACCA8165861BA007D943F /* Server Communication */,
 				56CACC6D16585A44007D943F /* JDAppDelegate.h */,
 				56CACC6E16585A44007D943F /* JDAppDelegate.m */,
-				56CACC7616585A44007D943F /* MainStoryboard.storyboard */,
-				56CACC7C16585A44007D943F /* JDMasterViewController.h */,
-				56CACC7D16585A44007D943F /* JDMasterViewController.m */,
-				56CACC7F16585A44007D943F /* JDDetailViewController.h */,
-				56CACC8016585A44007D943F /* JDDetailViewController.m */,
-				56CACC7916585A44007D943F /* RedditAnalyser.xcdatamodeld */,
 				56CACC6516585A44007D943F /* Supporting Files */,
 			);
 			path = RedditAnalyser;
@@ -172,6 +190,63 @@
 				56CACC9216585A44007D943F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		56CACCA8165861BA007D943F /* Server Communication */ = {
+			isa = PBXGroup;
+			children = (
+				56CACCAC16586212007D943F /* JDServerRequest.h */,
+				56CACCAD16586212007D943F /* JDServerRequest.m */,
+				56CACCB3165865FA007D943F /* User */,
+				56CACCB2165865F2007D943F /* Subreddit */,
+			);
+			name = "Server Communication";
+			sourceTree = "<group>";
+		};
+		56CACCAA165861C8007D943F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56CACC7916585A44007D943F /* RedditAnalyser.xcdatamodeld */,
+				56CACCC016586795007D943F /* User.h */,
+				56CACCC116586795007D943F /* User.m */,
+				56CACCBA16586795007D943F /* Thread.h */,
+				56CACCBB16586795007D943F /* Thread.m */,
+				56CACCB716586794007D943F /* Comment.h */,
+				56CACCB816586794007D943F /* Comment.m */,
+				56CACCC616586DAF007D943F /* Subreddit.h */,
+				56CACCC716586DAF007D943F /* Subreddit.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		56CACCAB165861D9007D943F /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				56CACC7616585A44007D943F /* MainStoryboard.storyboard */,
+				56CACC7C16585A44007D943F /* JDMasterViewController.h */,
+				56CACC7D16585A44007D943F /* JDMasterViewController.m */,
+				56CACC7F16585A44007D943F /* JDDetailViewController.h */,
+				56CACC8016585A44007D943F /* JDDetailViewController.m */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		56CACCB2165865F2007D943F /* Subreddit */ = {
+			isa = PBXGroup;
+			children = (
+				56CACCAF1658626D007D943F /* JDSubredditsRequest.h */,
+				56CACCB01658626D007D943F /* JDSubredditsRequest.m */,
+			);
+			name = Subreddit;
+			sourceTree = "<group>";
+		};
+		56CACCB3165865FA007D943F /* User */ = {
+			isa = PBXGroup;
+			children = (
+				56CACCB416586618007D943F /* JDUserRequest.h */,
+				56CACCB516586618007D943F /* JDUserRequest.m */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +365,13 @@
 				56CACC7B16585A44007D943F /* RedditAnalyser.xcdatamodeld in Sources */,
 				56CACC7E16585A44007D943F /* JDMasterViewController.m in Sources */,
 				56CACC8116585A44007D943F /* JDDetailViewController.m in Sources */,
+				56CACCAE16586212007D943F /* JDServerRequest.m in Sources */,
+				56CACCB11658626D007D943F /* JDSubredditsRequest.m in Sources */,
+				56CACCB616586618007D943F /* JDUserRequest.m in Sources */,
+				56CACCB916586794007D943F /* Comment.m in Sources */,
+				56CACCBC16586795007D943F /* Thread.m in Sources */,
+				56CACCC216586795007D943F /* User.m in Sources */,
+				56CACCC816586DAF007D943F /* Subreddit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +546,7 @@
 				56CACC9C16585A44007D943F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56CACC9D16585A44007D943F /* Build configuration list for PBXNativeTarget "RedditAnalyserTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +555,7 @@
 				56CACC9F16585A44007D943F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
